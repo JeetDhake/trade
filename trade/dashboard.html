@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/dashboard.css">
+    <script src="https://kit.fontawesome.com/b9323f08fd.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="lft">
+
+                <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+
+                <!-- <h1 class="hhw">ALGO</h1>
+                <h1 class="hh">TRADE</h1> -->
+                <button class="hov" id="symbol-btn">
+                    <div class="symbol">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                        <h3>nifty 50</h3>
+                    </div>
+                </button>
+
+
+                <div class="mid">
+                    <div class="nav-btn hov">
+                        <a href="">
+                            <i class="fa-regular fa-square-plus" style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+                    <div class="nav-btn hov">
+                        <a href="">
+                            <div class="justflex">
+                                <h4>D</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-btn hov">
+                        <a href="">
+                            <div class="justflex">
+                                <i class="fa-solid fa-chart-line" style="color: #ffffff;"></i>
+                                <h4>Indicators</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-btn hov">
+                        <a href="">
+                            <i class="fa-solid fa-circle-radiation" style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+                    <div class="nav-btn hov">
+                        <a href="">
+                            <i class="fa-solid fa-chart-column" style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+                    <div class="nav-btn hov">
+                        <a href="">
+                            <i class="fa-solid fa-stopwatch-20" style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="mid">
+                mid
+            </div>
+            <div class="rgt">
+                <div class="nav-btn hov">
+                    <a href="">
+                        <i class="fa-solid fa-gear" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+
+                <div class="nav-btn hov">
+                    <a href="">
+                        <i class="fa-solid fa-right-from-bracket " style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <div class="nav-btn hov">
+                    <a href="">
+                        <i class="fa-brands fa-btc" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <div class="nav-btn hov">
+                    <a href="">
+                        <i class="fa-solid fa-file-invoice-dollar" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <div class="nav-btn hov">
+                    <a href="">
+                        <!-- <img src="" alt="user" class="user"> -->
+                        <i class="fa-regular fa-circle-user" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar">
+            <div class="sidebar-container">
+                <div>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-regular fa-file-lines fa-lg" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-up-down-left-right" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-crop-simple" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-code" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-unlock-keyhole" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-regular fa-eye" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-layer-group" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-sim-card" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                    <button class="sidebar-btn hov">
+                        <div>
+                            <i class="fa-solid fa-trash-arrow-up" style="color: #ffffff;"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper one">
+            <div class="chart upbox x60">
+                <div>
+                    <div class="stock-head">
+                        <img src="image/user.png" alt="" class="symbol-logo">
+                        <h4 class="ptr" id="output">NIFTY 50</h4>
+                        <h4>&bull;</h4>
+                        <h4>NSE | BSE</h4>
+                    </div>
+                    <div class="stock-head">
+                        <h5>25000</h5>
+                    </div>
+                    <canvas id="Chartnse" height="75"></canvas>
+                    <canvas id="Chartbse" height="75"></canvas>
+                </div>
+            </div>
+            <div class="stocks upbox x40">
+                <div class="stock-head2">
+                    <div class="">
+                        <h4>Stocks</h4>
+                    </div>
+
+                    <div class="watchers">
+                        <button class="watch-btn hov">
+                            <div>
+                                <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                            </div>
+                        </button>
+                        <button class="watch-btn hov">
+                            <div>
+                                <i class="fa-solid fa-chart-pie" style="color: #ffffff;"></i>
+                            </div>
+                        </button>
+                        <button class="watch-btn hov">
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical" style="color: #ffffff;"></i>
+                            </div>
+                        </button>
+
+
+
+                    </div>
+                </div>
+
+
+                <div class="tablebox">
+                    <table class="orgtab">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>Change %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="onlyflex datax ptr">
+                                        <img src="image/user.png" alt="" class="symbol-logo">
+                                        <p onclick="selectItem('NIFTY 50')">NIFTY 50</p>
+                                    </div>
+
+                                </td>
+                                <td>$100.00</td>
+                                <td>+2.50</td>
+                                <td class="profit">+2.50%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onlyflex datax ptr">
+                                        <img src="image/user.png" alt="" class="symbol-logo">
+                                        <p onclick="selectItem('BANKNIFTY')">BANKNIFTY</p>
+                                    </div>
+
+                                </td>
+                                <td>$100.00</td>
+                                <td>+2.50</td>
+                                <td class="profit">+2.50%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onlyflex datax ptr">
+                                        <img src="image/user.png" alt="" class="symbol-logo">
+                                        <p onclick="selectItem('SENSEX')">SENSEX</p>
+                                    </div>
+
+                                </td>
+                                <td>$100.00</td>
+                                <td>+2.50</td>
+                                <td class="profit">+2.50%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onlyflex datax ptr">
+                                        <img src="image/user.png" alt="" class="symbol-logo">
+                                        <p onclick="selectItem('NIFTYMID')">NIFTYMID</p>
+                                    </div>
+
+                                </td>
+                                <td>$50.25</td>
+                                <td>1.75</td>
+                                <td class="profit">3.40%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onlyflex datax ptr">
+                                        <img src="image/user.png" alt="" class="symbol-logo">
+                                        <p onclick="selectItem('NIFTYSMALL')">NIFTYSMALL</p>
+                                    </div>
+
+                                </td>
+                                <td>$75.60</td>
+                                <td>+0.80</td>
+                                <td class="profit">+1.10%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stock-head2">
+                    <div class="">
+                        <h4>Order Book</h4>
+                    </div>
+
+                    <div class="watchers">
+                        <button class="watch-btn hov">
+                            <div>
+                                <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                            </div>
+                        </button>
+                        <button class="watch-btn hov">
+                            <div>
+                                <i class="fa-solid fa-chart-pie" style="color: #ffffff;"></i>
+                            </div>
+                        </button>
+                        <button class="watch-btn hov">
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical" style="color: #ffffff;"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="order-book">
+                    <div class="order-book-header">
+                        <div class="header bids-header">
+                            <div class="header-item price">Buy Price</div>
+                            <div class="header-item quantity">Quantity</div>
+                            <div class="header-item total">Total</div>
+                        </div>
+                        <div class="header asks-header">
+                            <div class="header-item price">Sell Price</div>
+                            <div class="header-item quantity">Quantity</div>
+                            <div class="header-item total">Total</div>
+                        </div>
+                    </div>
+                    <div class="order-book-body">
+                        <div class="bids">
+                            <div class="order-row b">
+                                <div class="price">100</div>
+                                <div class="quantity">5</div>
+                                <div class="total">500</div>
+                            </div>
+                            <div class="order-row b">
+                                <div class="price">100</div>
+                                <div class="quantity">5</div>
+                                <div class="total">500</div>
+                            </div>
+                            <div class="order-row b">
+                                <div class="price">100</div>
+                                <div class="quantity">5</div>
+                                <div class="total">500</div>
+                            </div>
+                        </div>
+                        <div class="asks">
+                            <div class="order-row s">
+                                <div class="price">105</div>
+                                <div class="quantity">3</div>
+                                <div class="total">315</div>
+                            </div>
+                            <div class="order-row s">
+                                <div class="price">105</div>
+                                <div class="quantity">3</div>
+                                <div class="total">315</div>
+                            </div>
+                            <div class="order-row s">
+                                <div class="price">105</div>
+                                <div class="quantity">3</div>
+                                <div class="total">315</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="wrapper two">
+            <div class="trade downbox x60">
+                <div id="tr_table-container">
+                    <table id="trade_table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Quantity</th>
+                                <th>Bought</th>
+                                <th>Sold</th>
+                                <th>Profit/Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AAPL</td>
+                                <td>100</td>
+                                <td>$145.20</td>
+                                <td>$145.20</td>
+                                <td class="profit">+ $230.50</td> <!-- Added class for profit -->
+                            </tr>
+                            <tr>
+                                <td>GOOGL</td>
+                                <td>50</td>
+                                <td>$2560.75</td>
+                                <td>$145.20</td>
+                                <td class="loss">- $180.20</td> <!-- Added class for loss -->
+                            </tr>
+
+                            <tr>
+                                <td>AAPL</td>
+                                <td>100</td>
+                                <td>$145.20</td>
+                                <td>$145.20</td>
+                                <td class="profit">+ $230.50</td> <!-- Added class for profit -->
+                            </tr>
+                            <tr>
+                                <td>GOOGL</td>
+                                <td>50</td>
+                                <td>$145.20</td>
+                                <td>$2560.75</td>
+                                <td class="loss">- $180.20</td> <!-- Added class for loss -->
+                            </tr>
+                            <tr>
+                                <td>GOOGL</td>
+                                <td>50</td>
+                                <td>$145.20</td>
+                                <td>$2560.75</td>
+                                <td class="loss">- $180.20</td> <!-- Added class for loss -->
+                            </tr>
+
+                            <tr>
+                                <td>AAPL</td>
+                                <td>100</td>
+                                <td>$145.20</td>
+                                <td>$145.20</td>
+                                <td class="profit">+ $230.50</td> <!-- Added class for profit -->
+                            </tr>
+                            <tr>
+                                <td>GOOGL</td>
+                                <td>50</td>
+                                <td>$145.20</td>
+                                <td>$2560.75</td>
+                                <td class="loss">- $180.20</td> <!-- Added class for loss -->
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+
+                </div>
+              
+            </div>
+            <div class="order downbox x40">
+                <div class="order-form">
+
+                    <form id="buyForm">
+                        <div class="form-group nob">
+                            <input type="text" id="symbolinp" name="symbolinp" class="symbolinp" placeholder="SYMBOL"
+                                readonly>
+                        </div>
+
+                        <div class="form-group fgf">
+                            <label for="Price" class="pri">Price
+                                <input type="number" id="Price" name="Price" placeholder="Enter price..."
+                                    required></label>
+
+                            <label for="quantity" class="quant">Quantity
+                                <input type="number" id="quantity" name="quantity" placeholder="Enter quantity..."
+                                    required></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="totalAmount">Total Amount</label>
+                            <input type="text" id="totalAmount" name="totalAmount" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <fieldset>
+                                <legend>Order Type</legend>
+                                <label><input type="radio" name="orderType" value="market"> Market Order</label>
+                                <label><input type="radio" name="orderType" value="limit"> Limit Order</label>
+                                <label><input type="radio" name="orderType" value="arbitrage"> arbitrage Order</label>
+                            </fieldset>
+                        </div>
+
+                        <div class="button-container">
+                            <button type="button" id="buyButton" class="buy-button"
+                                onclick="LimitOrderBuy()">Buy/Long</button>
+                            <button type="button" id="sellButton" class="sell-button"
+                                onclick="LimitOrderSell()">Sell/Short</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
