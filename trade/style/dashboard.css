@@ -3,9 +3,14 @@ body {
     padding: 0;
     height: 100%;
     box-sizing: border-box;
-    background: #494949;
+    background: #000000;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
+
+    user-select: none;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari and Chrome */
+    -ms-user-select: none; /* IE/Edge */
 }
 .container {
     height: 100vh; 
