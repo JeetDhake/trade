@@ -54,14 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         display: true,
                         text: 'Time'
                     },
-                    ticks: {
-                        maxTicksLimit: 8,
-                        stepSize: 1000,
-                        callback: function (value, index, values) {
-
-                            return new Date(value).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                        }
+                    realtime: {
+                        duration: 40000, 
+                        refresh: 1000,
+                        ttl: undefined 
                     }
+                    
                 },
                 y: {
                     display: true,
@@ -149,13 +147,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         display: true,
                         text: 'Time'
                     },
-                    ticks: {
-                        maxTicksLimit: 8,
-                        stepSize: 1000,
-                        callback: function (value, index, values) {
-
-                            return new Date(value).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                        }
+                    realtime: {
+                        duration: 40000, 
+                        refresh: 1000, 
+                        ttl: undefined 
                     }
                 },
                 y: {
